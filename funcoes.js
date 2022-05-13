@@ -1,10 +1,10 @@
 const inquirer = require("inquirer");
-
 const chalk = require("chalk");
-
 const fs = require("fs");
 
-async function operacoes(fn) {
+
+
+async function operacoes() {
     await inquirer
         .prompt([
             {
@@ -27,17 +27,20 @@ async function operacoes(fn) {
         .then((resposta) => {
             const action = resposta["action"];
 
-            if (action === "Criar Conta") fn;
+            if (action === "Criar Conta");
         });
 }
 
-function exibiMensagensCriarConta(fn) {
+
+
+function exibiMensagensCriarConta() {
     console.log(chalk.bgRed.black(`Parabéns por escolher nosso banco.`));
     console.log(chalk.green("Defina as opções da sua conta: "));
-    return fn;
 }
 
-function criaConta(fn) {
+
+
+function criaConta() {
     inquirer
         .prompt([
             {
@@ -48,20 +51,18 @@ function criaConta(fn) {
         .then((resp) => {
             const nomeDaConta = resp["nomeDaConta"];
             console.info(`Conta de nome: ${nomeDaConta}`);
-
-            return fn;
         });
 }
 
-function validarConta(fn) {
+
+function validarConta() {
     if (!fs.existsSync("db_contas")) fs.mkdirSync("db_contas");
 
     if (fs.existsSync(`db_contas/${criaConta.name}.json`)) {
         console.log(chalk.bgRed.black("Conta já existe, escolha outro nome."));
-        criaConta();
     }
-    return fn;
 }
+
 
 function criarArquivoDeConta() {
     const arquivo = fs.writeFileSync(
@@ -73,6 +74,8 @@ function criarArquivoDeConta() {
     )
     return arquivo;
 }
+
+
 
 module.exports = {
     operacoes,
