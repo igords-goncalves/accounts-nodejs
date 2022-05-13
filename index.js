@@ -1,8 +1,3 @@
-// npm modules
- const inquirer = require('inquirer')
- const chalk = require('chalk')
+const func = require('./funcoes')
 
-// core modules
-
-const fs = require('fs')
-
+func.operacoes()
