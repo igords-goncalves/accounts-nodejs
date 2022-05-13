@@ -28,18 +28,56 @@ async function operacoes(fn) {
             const action = resposta["action"];
 
             if (action === "Criar Conta") fn;
-        })
-        .catch((err) => console.log(err));
+        });
 }
 
-function criarConta(resposta) {
-    console.log(
-        chalk.bgRed(`Parabéns por escolher nosso banco ${resposta}.`) //! capturar nome
-    );
+function exibiMensagensCriarConta(fn) {
+    console.log(chalk.bgRed.black(`Parabéns por escolher nosso banco.`));
     console.log(chalk.green("Defina as opções da sua conta: "));
+    return fn;
+}
+
+function criaConta(fn) {
+    inquirer
+        .prompt([
+            {
+                name: "nomeDaConta",
+                message: "Digite um nome para conta: ",
+            },
+        ])
+        .then((resp) => {
+            const nomeDaConta = resp["nomeDaConta"];
+            console.info(`Conta de nome: ${nomeDaConta}`);
+
+            return fn;
+        });
+}
+
+function validarConta(fn) {
+    if (!fs.existsSync("db_contas")) fs.mkdirSync("db_contas");
+
+    if (fs.existsSync(`db_contas/${criaConta.name}.json`)) {
+        console.log(chalk.bgRed.black("Conta já existe, escolha outro nome."));
+        criaConta();
+    }
+    return fn;
+}
+
+function criarArquivoDeConta() {
+    const arquivo = fs.writeFileSync(
+        `db_contas/${criaConta.name}.json`,
+        "(balance: 0)",
+        (err) => {
+            console.log(`Erro: ${err}`);
+        }
+    )
+    return arquivo;
 }
 
 module.exports = {
     operacoes,
-    criarConta,
+    exibiMensagensCriarConta,
+    criaConta,
+    validarConta,
+    criarArquivoDeConta,
 };
