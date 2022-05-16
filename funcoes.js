@@ -23,15 +23,10 @@ async function solicitarOperacoes() {
         });
 }
 
-
-
 function exibirMensagensAoCriarConta() {
     console.log(chalk.bgRed.black(`Parabéns por escolher nosso banco.`));
     console.log(chalk.green("Defina as opções da sua conta: "));
 }
-
-
-
 
 function criarConta() {
     inquirer
@@ -42,26 +37,20 @@ function criarConta() {
         .then((resp) => {
             const nomeDaConta = resp["nomeDaConta"];
             console.info(`Conta de nome: ${nomeDaConta}`);
-        });
+        })
 }
-
-
-
 
 function validarConta() {
     if (!fs.existsSync("db_contas")) fs.mkdirSync("db_contas");
 
-    if (fs.existsSync(`db_contas/${criarConta.name}.json`)) {
+    if (fs.existsSync(`db_contas/${criarConta['nomeDaConta']}.json`)) {
         console.log(chalk.bgRed.black("Conta já existe, escolha outro nome."));
     }
 }
 
-
-
-
 function criarArquivoDeConta() {
     const arquivo = fs.writeFileSync(
-        `db_contas/${criarConta.name}.json`,
+        `db_contas/${criarConta['nomeDaConta']}.json`,
         "(balance: 0)",
         (err) => {
             console.log(`Erro: ${err}`);
