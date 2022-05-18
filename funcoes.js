@@ -3,28 +3,32 @@ const chalk = require("chalk");
 const fs = require("fs");
 
 async function solicitarOperacoes() {
+    const escolhas = [                
+        "Criar Conta",
+        "Consultar Saldo",
+        "Depositar",
+        "Sacar",
+        "Sair"
+    ]
+
    await inquirer
         .prompt({
             type: "list",
             name: "action",
             message: "Escolha o serviço: ",
-            choices: [
-                "Criar Conta",
-                "Consultar Saldo",
-                "Depositar",
-                "Sacar",
-                "Sair",
-            ],
+            choices: escolhas
         })
         .then((resposta) => {
             const action = resposta["action"];
 
-            if (action === "Criar Conta");
+            if (action.includes(escolhas));
+                exibirMensagensAoCriarConta()
+                criarConta()
         });
 }
 
 function exibirMensagensAoCriarConta() {
-    console.log(chalk.bgRed.black(`Parabéns por escolher nosso banco.`));
+    console.log(chalk.bgGreen.black(`Parabéns por escolher nosso banco.`));
     console.log(chalk.green("Defina as opções da sua conta: "));
 }
 
@@ -39,6 +43,7 @@ function criarConta() {
             console.info(`Conta de nome: ${nomeDaConta}`)
             validarConta(nomeDaConta)
             criarArquivoDeConta(nomeDaConta)
+            continuarServicos()
         })
 }
 
@@ -61,23 +66,37 @@ function criarArquivoDeConta(nomeDaConta) {
     return arquivo;
 }
 
+function continuarServicos() {
+    inquirer.prompt({
+        name: "action",
+        message: "quer continuar usando os servicos?",
+        choices: ["sim", "nao"],
+    }).then(resp => {
+        const action = resp['action']
 
+        if(action === 'sim') {
+            solicitarOperacoes()
+        } else {
+            console.log(chalk.redBright('Obrigado, até mais,!'))
+        }
+    })
+}
 
-// async function continuarServicos() {
-//     await inquirer.prompt({
-//         name: "action",
-//         message: "quer continuar usando os servicos?",
-//         choices: ["sim", "nao"],
-//     }).then(resp => {
-//         const action = resp['action']
+function consultarSaldo() {
 
-//         if(action === 'sim')
-//             return 'Deu tudo certo'
-//     })
-// }
+}
 
+function depositar() {
 
+}
 
+function sacar() {
+
+}
+
+function sair() {
+
+}
 
 module.exports = {
     solicitarOperacoes,
@@ -85,5 +104,5 @@ module.exports = {
     criarConta,
     validarConta,
     criarArquivoDeConta,
-    // continuarServicos,
+    continuarServicos,
 };
