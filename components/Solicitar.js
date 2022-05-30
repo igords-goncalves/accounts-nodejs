@@ -6,6 +6,9 @@ const exibirMensagensAoCriarConta = require("./Mensagem.js")
 const criarConta = require("./Criar.js")
 
 async function solicitarOperacoes() {
+
+    console.log('Testando requisição')
+
     const escolhas = [                
         "Criar Conta",
         "Consultar Saldo",
@@ -24,9 +27,10 @@ async function solicitarOperacoes() {
         .then((resposta) => {
             const action = resposta["action"];
 
-            if (action.includes(escolhas));
+            if (action.includes(escolhas)) {
                 exibirMensagensAoCriarConta()
                 criarConta()
+            }
         });
 }
 

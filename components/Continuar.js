@@ -4,6 +4,9 @@ const fs = require("fs");
 
 const solicitarOperacoes = require("./Solicitar.js")
 
+const func = () => solicitarOperacoes()
+ 
+
 function continuarServicos() {
     inquirer.prompt({
         name: "action",
