@@ -2,12 +2,12 @@ const inquirer = require("inquirer");
 const chalk = require("chalk");
 const fs = require("fs");
 
-const solicitarOperacoes = require("./components/Solicitar.js")
-const exibirMensagensAoCriarConta = require("./components/Mensagem.js")
-const criarConta = require("./components/Criar.js")
-const validarConta = require ("./components/Validar.js")
-const criarArquivoDeConta = require ("./components/Arquivo.js")
-const continuarServicos = require ("./components/Continuar.js")
+const solicitarOperacoes = require("./functions/Solicitar.js")
+const exibirMensagensAoCriarConta = require("./functions/Mensagem.js")
+const criarConta = require("./functions/Criar.js")
+const validarConta = require ("./functions/Validar.js")
+const criarArquivoDeConta = require ("./functions/Arquivo.js")
+const continuarServicos = require ("./functions/Continuar.js")
 
 module.exports = {
     solicitarOperacoes,
