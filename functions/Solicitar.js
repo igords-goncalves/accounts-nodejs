@@ -4,9 +4,6 @@ const exibirMensagensAoCriarConta = require("./Mensagem.js")
 const criarConta = require("./Criar.js")
 
 async function solicitarOperacoes() {
-
-    console.log('Testando requisição')
-
     const escolhas = [                
         "Criar Conta",
         "Consultar Saldo",

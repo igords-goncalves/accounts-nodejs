@@ -2,8 +2,6 @@ const inquirer = require("inquirer");
 const chalk = require("chalk");
 
 const solicitarOperacoes = require("./Solicitar.js")
-
-const func = () => solicitarOperacoes()
  
 
 function continuarServicos() {
