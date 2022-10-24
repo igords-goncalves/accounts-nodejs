@@ -1,6 +1,5 @@
 const inquirer = require("inquirer");
 const chalk = require("chalk");
-const fs = require("fs");
 
 const solicitarOperacoes = require("./Solicitar.js")
 

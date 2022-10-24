@@ -1,6 +1,4 @@
-const inquirer = require("inquirer");
 const chalk = require("chalk");
-const fs = require("fs");
 
 function exibirMensagensAoCriarConta() {
     console.log(chalk.bgGreen.black(`Parabéns por escolher nosso banco.`));

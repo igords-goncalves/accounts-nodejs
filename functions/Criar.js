@@ -1,6 +1,4 @@
 const inquirer = require("inquirer");
-const chalk = require("chalk");
-const fs = require("fs");
 
 const validarConta = require("./Validar.js")
 const criarArquivoDeConta = require("./Arquivo.js")

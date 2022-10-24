@@ -1,7 +1,3 @@
-const inquirer = require("inquirer");
-const chalk = require("chalk");
-const fs = require("fs");
-
 const solicitarOperacoes = require("./functions/Solicitar.js")
 const exibirMensagensAoCriarConta = require("./functions/Mensagem.js")
 const criarConta = require("./functions/Criar.js")
