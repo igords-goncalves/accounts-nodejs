@@ -5,4 +5,4 @@ function exibirMensagensAoCriarConta() {
     console.log(chalk.green("Defina as opções da sua conta: "));
 }
 
-module.exports = exibirMensagensAoCriarConta;
+module.exports = exibirMensagensAoCriarConta();

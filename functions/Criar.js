@@ -19,4 +19,4 @@ function criarConta() {
         })
 }
 
-module.exports = criarConta;
+module.exports = criarConta();
