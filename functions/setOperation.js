@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 
-const exibirMensagensAoCriarConta = require("./Mensagem.js")
-const criarConta = require("./Criar.js")
+const displayMessage = require("./displayMessage.js")
+const createAccount = require("./createAccount.js")
 
 async function setOperation() {
     const escolhas = [                
@@ -19,12 +19,12 @@ async function setOperation() {
             message: "Escolha o serviço: ",
             choices: escolhas
         })
-        .then((resposta) => {
-            const action = resposta["action"];
+        .then((resp) => {
+            const action = resp["action"];
 
             if (action.includes(escolhas)) {
-                exibirMensagensAoCriarConta()
-                criarConta()
+                createAccount()
+                displayMessage()
             }
         });
 }

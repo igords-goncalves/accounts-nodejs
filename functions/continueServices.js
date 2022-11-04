@@ -4,10 +4,10 @@ const chalk = require("chalk");
 const setOperation = require("./setOperation.js")
  
 
-function continuarServicos() {
+function continueServices() {
     inquirer.prompt({
         name: "action",
-        message: "quer continuar usando os servicos?",
+        message: "Quer continuar usando os servicos?",
         choices: ["sim", "nao"],
     }).then(resp => {
         const action = resp['action']
@@ -15,9 +15,9 @@ function continuarServicos() {
         if(action === 'sim') {
             setOperation()
         } else {
-            console.log(chalk.redBright('Obrigado, até mais,!'))
+            console.log(chalk.redBright.bgGray('Obrigado, até mais,!'))
         }
     })
 }
 
-module.exports = continuarServicos;
+module.exports = continueServices;

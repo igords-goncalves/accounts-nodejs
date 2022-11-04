@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-function criarArquivoDeConta(nomeDaConta) {
+function createAccountFile(nomeDaConta) {
     const arquivo = fs.writeFileSync(
         `db_contas/${nomeDaConta}.json`,
         "(balance: 0)",
@@ -10,4 +10,4 @@ function criarArquivoDeConta(nomeDaConta) {
     );
     return arquivo;
 }
-module.exports = criarArquivoDeConta;
+module.exports = createAccountFile;
