@@ -3,7 +3,7 @@ const inquirer = require("inquirer");
 const exibirMensagensAoCriarConta = require("./Mensagem.js")
 const criarConta = require("./Criar.js")
 
-async function solicitarOperacoes() {
+async function setOperation() {
     const escolhas = [                
         "Criar Conta",
         "Consultar Saldo",
@@ -29,4 +29,4 @@ async function solicitarOperacoes() {
         });
 }
 
-module.exports = solicitarOperacoes;
+module.exports = setOperation;

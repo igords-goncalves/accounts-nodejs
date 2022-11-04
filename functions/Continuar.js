@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 
-const solicitarOperacoes = require("./Solicitar.js")
+const setOperation = require("./setOperation.js")
  
 
 function continuarServicos() {
@@ -13,7 +13,7 @@ function continuarServicos() {
         const action = resp['action']
 
         if(action === 'sim') {
-            solicitarOperacoes()
+            setOperation()
         } else {
             console.log(chalk.redBright('Obrigado, até mais,!'))
         }
