@@ -12,6 +12,7 @@ function createAccount() {
         })
         .then((resp) => {
             const nomeDaConta = resp["nomeDaConta"];
+            
             console.info(`Conta de nome: ${nomeDaConta}`)
             checkAccount(nomeDaConta)
             createAccountFile(nomeDaConta)
@@ -19,4 +20,4 @@ function createAccount() {
         })
 }
 
-module.exports = createAccount();
+module.exports = createAccount;

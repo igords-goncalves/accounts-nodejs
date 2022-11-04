@@ -1,30 +1,28 @@
 const inquirer = require("inquirer");
 
-const displayMessage = require("./displayMessage.js")
-const createAccount = require("./createAccount.js")
+const displayMessage = require("./displayMessage.js");
 
 async function setOperation() {
-    const escolhas = [                
+    const escolhas = [
         "Criar Conta",
         "Consultar Saldo",
         "Depositar",
         "Sacar",
-        "Sair"
-    ]
+        "Sair",
+    ];
 
-   await inquirer
+    await inquirer
         .prompt({
             type: "list",
             name: "action",
             message: "Escolha o serviço: ",
-            choices: escolhas
+            choices: escolhas,
         })
         .then((resp) => {
             const action = resp["action"];
 
-            if (action.includes(escolhas)) {
-                createAccount()
-                displayMessage()
+            if (action === escolhas[0]) {
+                displayMessage();
             }
         });
 }
