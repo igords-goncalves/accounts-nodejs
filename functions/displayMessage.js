@@ -1,8 +1,8 @@
 const chalk = require("chalk");
 
-function exibirMensagensAoCriarConta() {
+function displayMessage() {
     console.log(chalk.bgGreen.black(`Parabéns por escolher nosso banco.`));
     console.log(chalk.green("Defina as opções da sua conta: "));
 }
 
-module.exports = exibirMensagensAoCriarConta();
+module.exports = displayMessage();

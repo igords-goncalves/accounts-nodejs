@@ -1,7 +1,7 @@
 const chalk = require("chalk");
 const fs = require("fs");
 
-function validarConta(nomeDaConta) {
+function checkAccount(nomeDaConta) {
     if (!fs.existsSync("db_contas")) fs.mkdirSync("db_contas");
 
     if (fs.existsSync(`db_contas/${nomeDaConta}.json`)) {
@@ -9,4 +9,4 @@ function validarConta(nomeDaConta) {
     }
 }
 
-module.exports = validarConta;
+module.exports = checkAccount;

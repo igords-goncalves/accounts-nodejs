@@ -1,4 +1,3 @@
-const func = require('./funcoes')
+const setOperation = require('./functions/setOperation');
 
-func.solicitarOperacoes()
-    .catch(err => console.log(err))
+setOperation().catch(error => console.log(error))
