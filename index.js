@@ -1,3 +1,4 @@
-const setOperation = require('./functions/setOperation');
+const setOperation = require('./src/functions/setOperation');
+const displayMessage = require('./src/functions/displayMessage')
 
-setOperation().catch(error => console.log(error))
+setOperation(displayMessage)
