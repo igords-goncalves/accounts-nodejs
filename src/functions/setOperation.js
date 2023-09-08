@@ -1,28 +1,31 @@
 const inquirer = require("inquirer");
-const continueServices = require("./continueServices");
+const displayMessage = require("./displayMessage.js");
+const exit = require("./exit.js");
 
-function setOperation(displayMessage) {
-    const escolhas = [
+function setOperation() {
+    const options = [
         "Criar Conta",
         "Consultar Saldo",
         "Depositar",
         "Sacar",
         "Sair",
     ];
-
+    console.clear();
     inquirer
         .prompt({
             type: "list",
             name: "action",
             message: "Escolha o serviço: ",
-            choices: escolhas,
+            choices: options,
         })
         .then((resp) => {
             const action = resp["action"];
 
-            if (action === escolhas[0]) {
-                console.log(escolhas)
-                displayMessage(continueServices);
+            //TODO: Tratar escolhas com um switch case
+            if (action.includes(options[0])) {
+                displayMessage();
+            } else if (action.includes(options[4])){
+                exit();
             }
         });
 }
