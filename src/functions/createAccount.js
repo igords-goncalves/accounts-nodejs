@@ -2,9 +2,9 @@ const inquirer = require("inquirer");
 
 const checkAccount = require("./checkAccount.js");
 const createAccountFile = require("./createAccountFile.js");
-const setOperation = require("./setOperation.js");
+const continueServices = require('./continueServices.js')
 
-function createAccount(continueServices) {
+function createAccount() {
     inquirer
         .prompt({
             name: "nomeDaConta",
@@ -12,12 +12,12 @@ function createAccount(continueServices) {
         })
         .then((resp) => {
             const nomeDaConta = resp["nomeDaConta"];
-            
             console.info(`Conta de nome: ${nomeDaConta}`)
+
             checkAccount(nomeDaConta)
             createAccountFile(nomeDaConta)
-            continueServices(setOperation)
+            continueServices()
         })
-}
+    }
 
 module.exports = createAccount;
