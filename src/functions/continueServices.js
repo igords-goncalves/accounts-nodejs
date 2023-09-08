@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 
-function continueServices(setOperation) {
+function continueServices() {
     inquirer
         .prompt({
             name: "resposta",
@@ -10,8 +10,13 @@ function continueServices(setOperation) {
 
         .then((resp) => {
             const resposta = resp["resposta"];
-
-            if (resposta === "sim") {
+            return resposta;
+        })
+        .then((resp) => {
+            const regex = /^sim$/i;
+            if (resp.match(regex)) {
+                //~~! O código é executado na ordem em que é importado
+                const setOperation = require("./setOperation.js");
                 setOperation();
             } else {
                 console.log(chalk.redBright.bgGray("Obrigado, até mais,!"));
