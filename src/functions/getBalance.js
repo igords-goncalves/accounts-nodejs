@@ -4,7 +4,7 @@ const continueServices = require("./continueServices");
 const inquirer = require("inquirer");
 const exit = require("./exit.js");
 
-function checkBalance() {
+function getBalance() {
     inquirer
         .prompt({
             name: "acountName",
@@ -46,4 +46,4 @@ function checkBalance() {
         });
 }
 
-module.exports = checkBalance;
+module.exports = getBalance;
