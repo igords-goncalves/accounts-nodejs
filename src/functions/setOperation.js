@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 const displayMessage = require("./displayMessage.js");
 const exit = require("./exit.js");
+const checkBalance = require("./checkBalance.js");
 
 function setOperation() {
     const options = [
@@ -15,17 +16,25 @@ function setOperation() {
         .prompt({
             type: "list",
             name: "action",
-            message: "Escolha o serviço: ",
+            message: "Escolha o serviço:",
             choices: options,
         })
         .then((resp) => {
             const action = resp["action"];
 
-            //TODO: Tratar escolhas com um switch case
-            if (action.includes(options[0])) {
-                displayMessage();
-            } else if (action.includes(options[4])){
-                exit();
+            switch (action) {
+                case options[0]:
+                    displayMessage();
+                    break;
+                case options[1]:
+                    checkBalance();
+                    break;
+                case options[2]:
+                    break;
+                case options[3]:
+                    break;
+                default:
+                    exit();
             }
         });
 }
