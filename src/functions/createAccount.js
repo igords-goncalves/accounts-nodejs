@@ -8,7 +8,7 @@ function createAccount() {
     inquirer
         .prompt({
             name: "nomeDaConta",
-            message: "Digite um nome para conta: ",
+            message: "Digite um nome para conta:",
         })
         .then((resp) => {
             const nomeDaConta = resp["nomeDaConta"];
