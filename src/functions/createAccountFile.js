@@ -4,12 +4,14 @@ function createAccountFile(accountName) {
     const date = new Date();
     const day = new Date(date);
 
+    const capitalizeName = accountName.toUpperCase();
+
     const file = fs.writeFileSync(
-        `db_contas/${accountName}.json`,
+        `db_contas/${capitalizeName}.json`,
         `{
-            "nome": "${accountName}",
+            "nome": "${capitalizeName}",
             "data": "${day.toDateString("pt-br")}",
-            "balanço": 0
+            "saldo": 0
         }`,
         (err) => {
             console.log(`Erro: ${err}`);
