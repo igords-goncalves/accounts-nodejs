@@ -1,5 +1,3 @@
 const chalk = require("chalk");
-
-const exit = () => console.log(chalk.redBright.bgGray("Obrigado, até mais,!"));
-
+const exit = () => console.log(chalk.redBright.bgBlackBright("Obrigado, até mais!"));
 module.exports = exit;
