@@ -1,7 +1,10 @@
 const inquirer = require("inquirer");
-const displayMessage = require("./displayMessage.js");
 const exit = require("./exit.js");
-const checkBalance = require("./checkBalance.js");
+
+const displayMessage = require("./displayMessage.js");
+const getBalance = require("./getBalance.js");
+const deposit = require("./deposit.js");
+const withDraw = require("./withDraw.js");
 
 function setOperation() {
     const options = [
@@ -27,11 +30,13 @@ function setOperation() {
                     displayMessage();
                     break;
                 case options[1]:
-                    checkBalance();
+                    getBalance();
                     break;
                 case options[2]:
+                    deposit();
                     break;
                 case options[3]:
+                    withDraw();
                     break;
                 default:
                     exit();
