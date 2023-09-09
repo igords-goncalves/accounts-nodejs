@@ -1,11 +1,12 @@
 const inquirer = require("inquirer");
 const chalk = require("chalk");
+const exit = require("./exit.js");
 
 function continueServices() {
     inquirer
         .prompt({
             name: "resposta",
-            message: "Quer continuar usando os servicos? ",
+            message: chalk.yellowBright("Quer continuar usando os servicos? "),
         })
 
         .then((resp) => {
@@ -19,7 +20,7 @@ function continueServices() {
                 const setOperation = require("./setOperation.js");
                 setOperation();
             } else {
-                console.log(chalk.redBright.bgGray("Obrigado, até mais,!"));
+                exit();
             }
         })
         .catch((err) => console.log(err));
