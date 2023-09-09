@@ -6,7 +6,7 @@ function continueServices() {
     inquirer
         .prompt({
             name: "resposta",
-            message: chalk.yellowBright("Quer continuar usando os servicos? "),
+            message: chalk.yellowBright("Quer continuar usando os servicos?"),
         })
 
         .then((resp) => {
