@@ -17,7 +17,7 @@ test("should display the right message for user", () => {
   const consoleSpy = jest.spyOn(console, "log");
 
   displayMessage();
-  console.log(consoleSpy.mock.calls);
+  console.log(consoleSpy.mock.calls); // It will be returned with chalk effect on string
 
   // Chalk effect on string
   expect(consoleSpy.mock.calls[0]).toEqual([
