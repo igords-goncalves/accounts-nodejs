@@ -1,47 +1,43 @@
 const inquirer = require("inquirer");
-const exit = require("./exit.js");
 
 const displayMessage = require("./displayMessage.js");
 const getBalance = require("./getBalance.js");
 const deposit = require("./deposit.js");
 const withDraw = require("./withDraw.js");
+const exit = require("./exit.js");
 
-function setOperation() {
-    const options = [
-        "Criar Conta",
-        "Consultar Saldo",
-        "Depositar",
-        "Sacar",
-        "Sair",
-    ];
-    console.clear();
-    inquirer
-        .prompt({
-            type: "list",
-            name: "action",
-            message: "Escolha o serviço:",
-            choices: options,
-        })
-        .then((resp) => {
-            const action = resp["action"];
+const OPTIONS = require("../constants/options.js");
 
-            switch (action) {
-                case options[0]:
-                    displayMessage();
-                    break;
-                case options[1]:
-                    getBalance();
-                    break;
-                case options[2]:
-                    deposit();
-                    break;
-                case options[3]:
-                    withDraw();
-                    break;
-                default:
-                    exit();
-            }
-        });
+async function setOperation() {
+  console.clear();
+  
+  const input = await inquirer.prompt({
+    type: "list",
+    name: "action",
+    message: "Escolha o serviço:",
+    choices: OPTIONS,
+  });
+
+  const action = await input["action"];
+  
+  // How to scale this code?
+  switch (action) {
+    case OPTIONS[0]:
+      displayMessage();
+      break;
+    case OPTIONS[1]:
+      getBalance();
+      break;
+    case OPTIONS[2]:
+      deposit();
+      break;
+    case OPTIONS[3]:
+      withDraw();
+      break;
+    default:
+      exit();
+  }
+  return action;
 }
 
 module.exports = setOperation;
