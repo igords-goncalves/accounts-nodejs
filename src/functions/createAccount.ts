@@ -1,8 +1,8 @@
-const inquirer = require("inquirer");
+import inquirer from "inquirer";
 
-const checkAccount = require("./checkAccount.js");
-const createAccountFile = require("./createAccountFile.js");
-const continueServices = require('./continueServices.js')
+import checkAccount from "./checkAccount.js";
+import createAccountFile from "./createAccountFile.js";
+import continueServices from "./continueServices.js";
 
 function createAccount() {
     inquirer
@@ -20,4 +20,4 @@ function createAccount() {
         })
     }
 
-module.exports = createAccount;
+export default createAccount;

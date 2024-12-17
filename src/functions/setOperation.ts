@@ -1,12 +1,13 @@
-const inquirer = require("inquirer");
+import inquirer from "inquirer";
 
-const displayMessage = require("./displayMessage.js");
-const getBalance = require("./getBalance.js");
-const deposit = require("./deposit.js");
-const withDraw = require("./withDraw.js");
-const exit = require("./exit.js");
+import displayMessage from "./displayMessage.js";
 
-const OPTIONS = require("../constants/options.js");
+import getBalance from "./getBalance.js";
+import deposit from "./deposit.js";
+import withDraw from "./withDraw.js";
+import exit from "./exit.js";
+
+import OPTIONS from "../constants/options.js";
 
 async function setOperation() {
   console.clear();
@@ -40,4 +41,4 @@ async function setOperation() {
   return action;
 }
 
-module.exports = setOperation;
+export default setOperation;

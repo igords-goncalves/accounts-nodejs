@@ -1,3 +1,4 @@
-const chalk = require("chalk");
+import chalk from "chalk";
+
 const exit = () => console.log(chalk.redBright.bgBlackBright.black("Obrigado, até mais!"));
-module.exports = exit;
+export default exit;

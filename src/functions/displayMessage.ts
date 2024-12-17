@@ -1,5 +1,6 @@
-const chalk = require("chalk");
-const createAccount = require("./createAccount.js");
+import chalk from "chalk";
+import createAccount from "./createAccount.js";
+
 
 function displayMessage() {
     console.log(chalk.bgGreen.black("Parabéns por escolher nosso banco."));
@@ -8,4 +9,4 @@ function displayMessage() {
     createAccount()
 }
 
-module.exports = displayMessage;
+export default displayMessage;

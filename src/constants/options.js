@@ -6,4 +6,4 @@ const OPTIONS = [
   "Sair",
 ];
 
-module.exports = OPTIONS;
+export default OPTIONS;
